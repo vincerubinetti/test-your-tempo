@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+@import url("https://fonts.googleapis.com/css?family=Gugi");
+
+* {
+  font-family: "Montserrat", sans-serif;
+  user-select: none;
+}
+body {
+  background: black;
+  margin: 0;
+  padding: 0;
+  box-shadow: inset 0 0 100px 10px rgba(0, 0, 0, 0.25);
+}
+canvas {
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -10;
+}
+#overlay {
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(white, transparent);
+  opacity: 0;
+}
+#title {
+  width: 100%;
+  position: fixed;
+  font-size: 60pt;
+  top: 50%;
+  font-weight: bold;
+  line-height: 1em;
+  text-align: center;
+}
+#bpm_container {
+  opacity: 0;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  white-space: nowrap;
+}
+#bpm_text_top {
+  font-size: 12pt;
+  line-height: 2;
+}
+#bpm_number {
+  font-family: "Gugi", sans-serif;
+  font-size: 60pt;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  background: none;
+  padding: 0;
+  margin: 0;
+  border: none;
+  appearance: none;
+  text-align: right;
+  width: 3ch;
+  max-width: 120pt;
+}
+#bpm_text_right {
+  font-size: 20pt;
+  margin-left: 0.35em;
+  position: relative;
+  display: inline-block;
+}
+#bpm_text_right #tooltip {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  transform: translate(0, 50%);
+  font-size: 10pt;
+  white-space: nowrap;
+  transition: opacity 0.1s ease, transform 0.1s ease;
+  pointer-events: none;
+}
+#bpm_text_right:hover #tooltip {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+.icon {
+  width: 48px;
+  height: 48px;
+}
+.icon:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+#reminder_container {
+  position: fixed;
+  left: 50%;
+  top: 15%;
+  text-align: center;
+}
+#reminder_number {
+  font-family: "Gugi", sans-serif;
+  font-size: 40pt;
+}
+#reminder_text {
+  font-size: 20pt;
+  margin-left: 0.35em;
+}
+#results_container {
+  position: fixed;
+  left: 50%;
+  top: 75%;
+  text-align: center;
+}
+#results_table {
+  font-size: 12pt;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+#results_table td {
+  text-align: center;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+#results_table tr:nth-child(even) td {
+  font-size: 20pt;
+  line-height: 0.8;
+  padding-bottom: 12px;
+}
+#unmute_container,
+#mute_container,
+#cancel_container,
+#back_container {
+  position: fixed;
+  right: 0;
+  top: 0;
+}

@@ -1,0 +1,95 @@
+<html>
+  <head>
+    <title>Test Your Tempo</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <link href="styles.css" rel="stylesheet" />
+    <script src="scripts.js"></script>
+  </head>
+  <body>
+    <div id="overlay"></div>
+    <div id="title">Test Your Tempo</div>
+    <div id="bpm_container">
+      <div id="bpm_text_top">TAP AT</div>
+      <input
+        id="bpm_number"
+        pattern="[0-9]*"
+        maxlength="3"
+        onchange="CleanTempoInput()"
+        onblur="CleanTempoInput()"
+      />
+      <span id="bpm_text_right"
+        >BPM<span id="tooltip">Beats Per Minute</span></span
+      >
+      <div>
+        <a
+          href="javascript:void(0);"
+          id="refresh_link"
+          onclick="RefreshTempo();"
+          ><img class="icon" id="refresh" src="refresh.svg"
+        /></a>
+      </div>
+    </div>
+    <div id="reminder_container">
+      <span id="reminder_number"></span><span id="reminder_text">BPM</span>
+    </div>
+    <div id="results_container">
+      <table id="results_table">
+        <tr>
+          <td>Target</td>
+          <td>Accuracy</td>
+          <td>Precision</td>
+        </tr>
+        <tr>
+          <td id="results_target"></td>
+          <td id="results_accuracy"></td>
+          <td id="results_precision"></td>
+        </tr>
+        <tr>
+          <td>Average</td>
+          <td>Median</td>
+          <td>&sigma;</td>
+        </tr>
+        <tr>
+          <td id="results_average"></td>
+          <td id="results_median"></td>
+          <td id="results_sd"></td>
+        </tr>
+      </table>
+    </div>
+    <div id="mute_container">
+      <a href="javascript:void(0);" id="mute_link" onclick="Metronome.toggle();"
+        ><img class="icon" id="mute_icon" src="mute.svg"
+      /></a>
+    </div>
+    <div id="unmute_container">
+      <a
+        href="javascript:void(0);"
+        id="unmute_link"
+        onclick="Metronome.toggle();"
+        ><img class="icon" id="unmute_icon" src="unmute.svg"
+      /></a>
+    </div>
+    <div id="cancel_container">
+      <a
+        href="javascript:void(0);"
+        id="cancel_link"
+        onclick="Pie.startFade(); Test.hide(); BeginMenu();"
+        ><img class="icon" id="cancel" src="x.svg"
+      /></a>
+    </div>
+    <div id="back_container">
+      <a
+        href="javascript:void(0);"
+        id="back_link"
+        onclick="Results.hide(); BeginMenu();"
+        ><img class="icon" src="back.svg"
+      /></a>
+    </div>
+    <canvas id="pie_canvas"></canvas>
+    <canvas id="chart_canvas"></canvas>
+    <audio id="metronome" src="metronome.wav"></audio>
+  </body>
+</html>
